@@ -18,10 +18,17 @@ class ArticleController extends Controller
     }
 
     public function getArticleById($article_id){
-        $article = Article::where('id', $article_id)->get();
+        $article = Article::where('id', $article_id)->first();
+        return view('full_story')->with('article', $article);
     }
 
-    public function getArticelByUserId($user_id){
+    public function getArticleByUserId($user_id){
         $articles = Article::where('user_id', $user_id)->get();
+        return view('user_article')->with('articles', $articles);
+    }
+
+    public function deleteArticle($article_id){
+        $article = Article::where('id', '=', $article_id)->delete();
+        return redirect()->back();
     }
 }

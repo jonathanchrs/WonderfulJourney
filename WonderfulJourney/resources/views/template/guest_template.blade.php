@@ -57,11 +57,11 @@
                                     <a class="nav-link" href="#">Admin</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">User</a>
+                                    <a class="nav-link" href={{ url('/all_user') }}>User</a>
                                 </li>
                             </ul>
                             <span class="navbar-text">
-                                <a class="nav-link" href={{ url('/login') }}>Logout</a>
+                                <a class="nav-link" href={{ url('/logout') }}>Logout</a>
                             </span>
                         @elseif(Auth::user()->role == 'User')
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -76,7 +76,7 @@
                                 </li>
                             </ul>
                             <span class="navbar-text">
-                                <a class="nav-link" href={{ url('/login') }}>Logout</a>
+                                <a class="nav-link" href={{ url('/logout') }}>Logout</a>
                             </span>
                         @endif
                     @endif

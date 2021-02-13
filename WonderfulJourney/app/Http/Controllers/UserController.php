@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function getAllUser(){
-        $users = User::get();
+        $users = User::where('role', '=', 'User')->get();
+        return view('all_user')->with('users', $users);
     }
 
     public function showRegisterPage(){
@@ -51,14 +52,24 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-            if(Auth::user()->role == 'Admin'){
-                return redirect('/home_admin');
-            }
-            else if(Auth::user()->role == 'User'){
-                
-            }
+        if($request->role == 1) $role = 'Admin';
+        else if($request->role == 2) $role = 'User';
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]) && $role == Auth::user()->role){
+            return redirect('/home');
         }
+        return redirect()->back();
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/guesthome');
+    }
+
+    public function deleteUser($user_id){
+        $user = User::where('id', '=', $user_id)->delete();
         return redirect()->back();
     }
 }
