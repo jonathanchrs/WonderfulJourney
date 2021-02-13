@@ -21,3 +21,7 @@ Route::get('/about_us', function(){
 Route::get('/register', 'UserController@showRegisterPage');
 Route::post('/do_register', 'UserController@registerUser');
 Route::get('/login', 'UserController@showLoginPage');
+Route::post('/do_login', 'UserController@login');
+Route::get('/home_admin', function(){
+    return view('home_admin');
+});

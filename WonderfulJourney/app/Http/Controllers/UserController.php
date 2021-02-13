@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,5 +48,17 @@ class UserController extends Controller
 
     public function showLoginPage(){
         return view('login');
+    }
+
+    public function login(Request $request){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            if(Auth::user()->role == 'Admin'){
+                return redirect('/home_admin');
+            }
+            else if(Auth::user()->role == 'User'){
+                
+            }
+        }
+        return redirect()->back();
     }
 }

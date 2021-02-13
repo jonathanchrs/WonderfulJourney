@@ -20,32 +20,67 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href={{ url('/guesthome') }}>Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Category
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href={{ url('/category/1') }}>Beach</a></li>
-                                <li><a class="dropdown-item" href={{ url('/category/2') }}>Mountain</a></li>
-                                <li><a class="dropdown-item" href={{ url('/category/3') }}>Lake</a></li>
-                                <li><a class="dropdown-item" href={{ url('/category/4') }}>River</a></li>
-                                <li><a class="dropdown-item" href={{ url('/category/5') }}>Forest</a></li>
+                    @if (Auth::check() == false)
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ url('/guesthome') }}>Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Category
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href={{ url('/category/1') }}>Beach</a></li>
+                                    <li><a class="dropdown-item" href={{ url('/category/2') }}>Mountain</a></li>
+                                    <li><a class="dropdown-item" href={{ url('/category/3') }}>Lake</a></li>
+                                    <li><a class="dropdown-item" href={{ url('/category/4') }}>River</a></li>
+                                    <li><a class="dropdown-item" href={{ url('/category/5') }}>Forest</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ url('about_us') }}>About Us</a>
+                            </li>
+                        </ul>
+                        <span class="navbar-text" style="margin-right: 20px">
+                            <a class="nav-link" href={{ url('/register') }}>Sign Up</a>
+                        </span>
+                        <span class="navbar-text">
+                            <a class="nav-link" href={{ url('/login') }}>Login</a>
+                        </span>
+                    @else
+                        @if (Auth::user()->role == 'Admin')
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href={{ url('/home_admin') }}>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">User</a>
+                                </li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href={{ url('about_us') }}>About Us</a>
-                        </li>
-                    </ul>
-                    <span class="navbar-text" style="margin-right: 20px">
-                        <a class="nav-link" href={{ url('/register') }}>Sign Up</a>
-                    </span>
-                    <span class="navbar-text">
-                        <a class="nav-link" href="#">Login</a>
-                    </span>
+                            <span class="navbar-text">
+                                <a class="nav-link" href={{ url('/login') }}>Logout</a>
+                            </span>
+                        @elseif(Auth::user()->role == 'User')
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href={{ url('/home_admin') }}>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Blog</a>
+                                </li>
+                            </ul>
+                            <span class="navbar-text">
+                                <a class="nav-link" href={{ url('/login') }}>Logout</a>
+                            </span>
+                        @endif
+                    @endif
+
                 </div>
             </div>
         </div>
