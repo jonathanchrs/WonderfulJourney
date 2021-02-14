@@ -30,11 +30,9 @@
                                     Category
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <li><a class="dropdown-item" href={{ url('/category/1') }}>Beach</a></li>
-                                    <li><a class="dropdown-item" href={{ url('/category/2') }}>Mountain</a></li>
-                                    <li><a class="dropdown-item" href={{ url('/category/3') }}>Lake</a></li>
-                                    <li><a class="dropdown-item" href={{ url('/category/4') }}>River</a></li>
-                                    <li><a class="dropdown-item" href={{ url('/category/5') }}>Forest</a></li>
+                                    @foreach ($categories as $category)
+                                        <li><a class="dropdown-item" href={{ url('/category/1') }}>{{ $category->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="nav-item">

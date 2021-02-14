@@ -1,5 +1,7 @@
 @extends('template/guest_template')
 
+@section('title', 'User Article')
+
 @section('content')
 
     <div class="container pt-5 mt-5">

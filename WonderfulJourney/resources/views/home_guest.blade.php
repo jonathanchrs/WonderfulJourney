@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $article->title }}</h5>
                                 <p class="card-text">{{ $desc }}</p>
-                                <a href="#" class="btn btn-danger">Full Story ></a>
+                                <a href="/full_story/{{ $article->id }}" class="btn btn-danger">Full Story ></a>
                             </div>
                         </div>
                     </div>

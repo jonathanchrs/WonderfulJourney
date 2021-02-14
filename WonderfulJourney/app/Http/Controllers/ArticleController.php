@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -17,7 +18,8 @@ class ArticleController extends Controller
 
     public function getCategorizedArticle($category_id){
         $articles = Article::where('category_id', $category_id)->get();
-        return view('home_categorized_guest')->with('articles', $articles);
+        $categories = Category::all();
+        return view('home_categorized_guest')->with(['articles' => $articles, 'categories' => $categories]);
     }
 
     public function getArticleById($article_id){

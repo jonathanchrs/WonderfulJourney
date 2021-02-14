@@ -1,5 +1,7 @@
 @extends('template/guest_template')
 
+@section('title', 'All User')
+
 @section('content')
 
     <div class="container mt-5 pt-5" style="color: white">

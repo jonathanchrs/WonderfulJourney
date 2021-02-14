@@ -1,5 +1,7 @@
 @extends('template/guest_template')
 
+@section('title', 'Category')
+
 @section('content')
 
     <div class="bg-dark" style="height: 350px">

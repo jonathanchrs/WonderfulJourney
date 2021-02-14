@@ -1,5 +1,7 @@
 @extends('template/guest_template')
 
+@section('title', 'About Us')
+
 @section('content')
     <div class="bg-dark" style="height: 350px">
         <div class="container pt-5" style="text-align: center; color: white">
