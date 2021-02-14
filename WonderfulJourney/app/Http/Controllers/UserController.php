@@ -44,7 +44,7 @@ class UserController extends Controller
             'updated_at' => Date::now()
         ]);
 
-        return redirect('/login');
+        return redirect()->route('login');
     }
 
     public function showLoginPage(){
@@ -65,11 +65,36 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/guesthome');
+        return redirect('/');
     }
 
     public function deleteUser($user_id){
         $user = User::where('id', '=', $user_id)->delete();
         return redirect()->back();
+    }
+
+    public function showUpdateProfile(){
+        return view('update_profile');
+    }
+
+    public function updateProfile(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required|numeric'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
+        $user = User::where('id', '=', Auth::user()->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
+
+        return redirect('/home');
     }
 }

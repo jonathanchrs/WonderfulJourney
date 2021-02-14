@@ -38,20 +38,20 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href={{ url('about_us') }}>About Us</a>
+                                <a class="nav-link" href={{ url('/about_us') }}>About Us</a>
                             </li>
                         </ul>
                         <span class="navbar-text" style="margin-right: 20px">
                             <a class="nav-link" href={{ url('/register') }}>Sign Up</a>
                         </span>
                         <span class="navbar-text">
-                            <a class="nav-link" href={{ url('/login') }}>Login</a>
+                            <a class="nav-link" href={{ route('login') }}>Login</a>
                         </span>
                     @else
                         @if (Auth::user()->role == 'Admin')
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/home_admin') }}>Home</a>
+                                    <a class="nav-link" href={{ url('/home') }}>Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Admin</a>
@@ -66,13 +66,13 @@
                         @elseif(Auth::user()->role == 'User')
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/home_admin') }}>Home</a>
+                                    <a class="nav-link" href={{ url('/home') }}>Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Profil</a>
+                                    <a class="nav-link" href={{ url('/show_update_profile') }}>Profil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href={{ url('/all_article') }}>Blog</a>
                                 </li>
                             </ul>
                             <span class="navbar-text">
