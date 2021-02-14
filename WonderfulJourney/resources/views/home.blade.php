@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <div class="container">
-        <h3>Welcome {{Auth::user()->name}}</h3>
+    <div class="container mt-5 pt-5" style="color: white">
+        <div class="container" style="text-align: center">
+            <h2>Welcome {{ Auth::user()->name }} !!</h2>
+        </div>
     </div>
 @endsection

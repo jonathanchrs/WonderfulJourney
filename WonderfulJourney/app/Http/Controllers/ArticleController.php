@@ -73,4 +73,8 @@ class ArticleController extends Controller
 
         return redirect('/home');
     }
+
+    public function back(){
+        return redirect()->back();
+    }
 }

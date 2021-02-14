@@ -11,9 +11,9 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="bg-dark pt-5 pb-5">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,10 @@
                     @if (Auth::check() == false)
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href={{ url('/guesthome') }}>Home</a>
+                                <a class="nav-link" href={{ url('/') }} style="color: white">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
                                     Category
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
@@ -38,45 +38,45 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href={{ url('/about_us') }}>About Us</a>
+                                <a class="nav-link" href={{ url('/about_us') }} style="color: white">About Us</a>
                             </li>
                         </ul>
                         <span class="navbar-text" style="margin-right: 20px">
-                            <a class="nav-link" href={{ url('/register') }}>Sign Up</a>
+                            <a class="nav-link" href={{ url('/register') }} style="color: white">Sign Up</a>
                         </span>
                         <span class="navbar-text">
-                            <a class="nav-link" href={{ route('login') }}>Login</a>
+                            <a class="nav-link" href={{ route('login') }} style="color: white">Login</a>
                         </span>
                     @else
                         @if (Auth::user()->role == 'Admin')
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/home') }}>Home</a>
+                                    <a class="nav-link" href={{ url('/home') }} style="color: white">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Admin</a>
+                                    <a class="nav-link" href="#" style="color: white">Admin</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/all_user') }}>User</a>
+                                    <a class="nav-link" href={{ url('/all_user') }} style="color: white">User</a>
                                 </li>
                             </ul>
                             <span class="navbar-text">
-                                <a class="nav-link" href={{ url('/logout') }}>Logout</a>
+                                <a class="nav-link" href={{ url('/logout') }} style="color: white">Logout</a>
                             </span>
                         @elseif(Auth::user()->role == 'User')
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/home') }}>Home</a>
+                                    <a class="nav-link" href={{ url('/home') }} style="color: white">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/show_update_profile') }}>Profil</a>
+                                    <a class="nav-link" href={{ url('/show_update_profile') }} style="color: white">Profil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{ url('/all_article') }}>Blog</a>
+                                    <a class="nav-link" href={{ url('/all_article') }} style="color: white">Blog</a>
                                 </li>
                             </ul>
                             <span class="navbar-text">
-                                <a class="nav-link" href={{ url('/logout') }}>Logout</a>
+                                <a class="nav-link" href={{ url('/logout') }} style="color: white">Logout</a>
                             </span>
                         @endif
                     @endif

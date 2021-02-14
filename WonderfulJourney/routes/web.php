@@ -41,6 +41,7 @@ Route::group(['middleware' => ['role:Admin']], function(){
 });
 
 Route::get('/full_story/{article_id}', 'ArticleController@getArticleById');
+Route::get('/back', 'ArticleController@back');
 
 Route::group(['middleware' => ['role:User']], function(){
     Route::post('/update_profile', 'UserController@updateProfile');

@@ -1,12 +1,19 @@
 @extends('template/guest_template')
 
 @section('content')
+    <div class="bg-dark" style="height: 350px">
+        <div class="container pt-5" style="text-align: center; color: white">
+            <h1 class="mt-5">Wonderful Journey</h1>
+            <h4>Blog of Indonesian Tourism</h4>
+        </div>
 
-    <div class="container">
+        <div class="container mt-5 pt-5">
+            <hr style="border: 1px solid white">
+        </div>
 
-        <h1>Wonderful Journey</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam excepturi non vero totam laborum vitae laboriosam, numquam consequuntur, maiores, tempora minus? Est nostrum totam earum et laudantium ipsum quos qui!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vitae consequatur ut, dolores quas blanditiis saepe ipsam vel officia tenetur. Nulla quisquam laborum ea itaque fuga ipsa excepturi libero quae!</p>
+        <div class="container mt-5" style="color: white; text-align: center">
+            <p class="mt-5">Wonderful Indonesia merupakan web yang dibuat untuk media membagikan pengalaman travelling di objek-objek wisata alam yang ada di Indonesia. Objek-objek wisata dalam web ini akan dibagi berdasarkan beberapa kategori mulai dari Beach, Mountain, Lake, River, dan Forest. User dapat berbagi pengalaman dalam berbagai bentuk mulai dari tulisan sampai foto dari objek wisata yang mereka datangi.</p>
+        </div>
     </div>
 
 @endsection
